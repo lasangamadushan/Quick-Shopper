@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingBottom="3dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingRight="3dp">
+
+            <ImageButton
+                android:id="@+id/btn_restaurant"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_restaurant" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="3dp">
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_supermaket" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingTop="3dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingRight="3dp">
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_pharmacy" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="3dp">
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_textile"
+                tools:layout_editor_absoluteX="184dp"
+                tools:layout_editor_absoluteY="208dp" />
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
