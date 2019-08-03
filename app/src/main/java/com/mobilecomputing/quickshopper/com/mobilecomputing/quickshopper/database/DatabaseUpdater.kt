@@ -11,12 +11,12 @@ class DatabaseUpdater(ctx: Context) {
         context = ctx
     }
 
-    fun saveShop(type: String, shopeName: String, crowdLevel: Int, location: Location) {
+    fun saveShop(type: String, shopeName: String, crowdLevel: Int, location: Location, address: String) {
         val db = FirebaseDatabase.getInstance()
         val ref = db.getReference(type)
         val shopId = ref.push().key
 
-        val shop = Shop(shopeName, crowdLevel, location)
+        val shop = Shop(shopeName, crowdLevel, location, address)
 
         ref.child(shopId!!).setValue(shop).addOnCompleteListener{
             Toast.makeText(context, "shop saved successfully", Toast.LENGTH_LONG).show()

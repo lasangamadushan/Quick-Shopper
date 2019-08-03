@@ -1,7 +1,9 @@
 package com.mobilecomputing.quickshopper.com.mobilecomputing.quickshopper.results
 
 import android.app.Activity
+import android.content.Intent
 import android.location.Location
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.ListView
@@ -35,8 +37,11 @@ class ResultsActivity:Activity() {
 //        listView.adapter = ResultAdapter(this, R.layout.result_row, resultsList)
 */
 
-        val gpsModule : GPSModule = GPSModule(applicationContext)
+        val gpsModule = GPSModule(applicationContext)
         val location : Location? = gpsModule.getLocation()
+
+
+        //Log.d("lasa", location!!.latitude as String)
 
 
 
@@ -44,7 +49,7 @@ class ResultsActivity:Activity() {
         val ref = db.reference
         Log.d("lasa",ref.child("Restaurant").toString())
         val query = ref.child("Restaurant")
-                .orderByChild("location/latitude").startAt(6.81).endAt(6.83)
+                .orderByChild("location/latitude").startAt(6.79).endAt(6.83)
 
         query.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
@@ -59,8 +64,9 @@ class ResultsActivity:Activity() {
                                                             0L -> "Low"
                                                             1L -> "Medium"
                                                             else -> "High"}
+                            val address = s.child("address").value as String
 
-                            val result = Result(shopName, crowdLevel,1.5)
+                            val result = Result(shopName, crowdLevel,1.5, address)
 
                             resultsList.add(result)
                         }
@@ -74,5 +80,13 @@ class ResultsActivity:Activity() {
         })
 
         listView.adapter = ResultAdapter(this, R.layout.result_row, resultsList)
+
+
+
+        listView.setOnItemClickListener{ parent, view, position, id ->
+            val uri = "geo:0,0?q="+resultsList.get(position).address
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            applicationContext.startActivity(intent)
+        }
     }
 }
