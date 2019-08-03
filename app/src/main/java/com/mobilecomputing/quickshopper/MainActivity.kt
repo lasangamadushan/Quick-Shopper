@@ -2,10 +2,7 @@ package com.mobilecomputing.quickshopper
 
 import android.app.Activity
 import android.content.Intent
-import android.location.Address
-import android.location.Geocoder
 import android.location.Location
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
@@ -13,8 +10,6 @@ import android.widget.Toast
 import com.mobilecomputing.quickshopper.com.mobilecomputing.quickshopper.database.DatabaseUpdater
 import com.mobilecomputing.quickshopper.com.mobilecomputing.quickshopper.location.GPSModule
 import com.mobilecomputing.quickshopper.com.mobilecomputing.quickshopper.results.ResultsActivity
-import java.util.jar.Manifest
-import android.support.v4.content.ContextCompat.startActivity
 import java.util.*
 
 
@@ -55,7 +50,7 @@ class MainActivity : Activity() {
         }
 
         btnPharmacy.setOnClickListener {
-            databaseUpdater.saveShop("Restaurant", "Neluma Restaurant", 0, gpsModule.getLocation()!!, "Neluma+Restaurant,+B295,+Piliyandala")
+            databaseUpdater.saveShop("Restaurants", "Neluma Restaurant", 0, gpsModule.getLocation()!!, "Neluma+Restaurant,+B295,+Piliyandala")
         }
 
         btnTextile.setOnClickListener {
@@ -75,11 +70,5 @@ class MainActivity : Activity() {
             Toast.makeText(this,addresses.toString(), Toast.LENGTH_SHORT).show()
             */
         }
-
-
-
     }
-
-
-
 }
