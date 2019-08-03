@@ -7,8 +7,8 @@ import android.location.Location.distanceBetween
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.widget.ListView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -28,8 +28,12 @@ class ResultsActivity:Activity() {
         title = category
 
         var listView:ListView = findViewById(R.id.results)
-
+        var sortSpinner = findViewById<Spinner>(R.id.sortSpinner)
+        var options = arrayOf("Crowd", "Distance")
+        sortSpinner.adapter = ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, options)
         var resultsList = mutableListOf<Result>()
+
+
 
 /*        resultsList.add(Result("Neluma Restaurant", "Low", 1.4))
 //        resultsList.add(Result("Liyanage Hotel", "Low", 1.4))
@@ -95,12 +99,34 @@ class ResultsActivity:Activity() {
         listView.adapter = ResultAdapter(applicationContext, R.layout.result_row, resultsList.sortedBy {it.crowdLevel})
 
 
+        sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
 
-        listView.setOnItemClickListener{ parent, view, position, id ->
-            val uri = "geo:0,0?q="+resultsList.sortedBy {it.crowdLevel}[position].address
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-            applicationContext.startActivity(intent)
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (options[position].equals("Crowd")){
+                    listView.adapter = ResultAdapter(applicationContext, R.layout.result_row, resultsList.sortedBy {it.crowdLevel})
+                    listView.setOnItemClickListener{ parent, view, position, id ->
+                        val uri = "geo:0,0?q="+resultsList.sortedBy {it.crowdLevel}[position].address
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                        applicationContext.startActivity(intent)
+                    }
+                }
+
+                else if (options[position].equals("Distance")){
+                    listView.adapter = ResultAdapter(applicationContext, R.layout.result_row, resultsList.sortedBy {it.distance})
+                    listView.setOnItemClickListener{ parent, view, position, id ->
+                        val uri = "geo:0,0?q="+resultsList.sortedBy {it.distance}[position].address
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                        applicationContext.startActivity(intent)
+                    }
+                }
+            }
         }
+
+
+
     }
 
 //    fun sortByCrowd (resultList:List<Result>): List<Result>{
