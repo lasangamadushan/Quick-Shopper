@@ -67,7 +67,6 @@ class ResultsActivity:Activity() {
                     for (s in p0.children) {
                         if (startAtLon< (s.child("location/longitude").value as Double)
                                 && (s.child("location/longitude").value as Double) < endAtLon) {
-
                             val shopName = s.child("shopName").value as String
                             val crowdLevel = when((s.child("crowdLevel").value as Long)){
                                                             0L -> 0
