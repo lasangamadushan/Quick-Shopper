@@ -44,7 +44,7 @@
             android:paddingLeft="3dp">
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/btn_supermarket"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 android:background="#00000000"
@@ -69,7 +69,7 @@
             android:paddingRight="3dp">
 
             <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/btn_pharmacy"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 android:background="#00000000"
@@ -85,7 +85,7 @@
             android:paddingLeft="3dp">
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/btn_textile"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 android:background="#00000000"

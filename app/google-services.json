@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "229993976023",
+    "firebase_url": "https://quickshopper-58dd4.firebaseio.com",
+    "project_id": "quickshopper-58dd4",
+    "storage_bucket": "quickshopper-58dd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229993976023:android:27ed83b3af4843a1",
+        "android_client_info": {
+          "package_name": "com.mobilecomputing.quickshopper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229993976023-i7t9gl9btuo89b4bd4g0svfqr2cd7bk1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobilecomputing.quickshopper",
+            "certificate_hash": "f226c68c46fbb2649d6c95376f825189a5c96124"
+          }
+        },
+        {
+          "client_id": "229993976023-suhf5sror4202k89pr4m1ehabtmmkgu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJBgIr6cVkIfOcWu6KJQL4b9hxiOnMnf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229993976023-suhf5sror4202k89pr4m1ehabtmmkgu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -30,11 +30,15 @@ class ResultAdapter (var ctx:Context, var resource:Int, var results:List<Result>
         var result:Result = results[position]
 
         shopName.text = result.shopName
-        crowdLevel.text = "Crowd : ${result.crowdLevel}"
+        crowdLevel.text = "Crowd : ${when(result.crowdLevel){
+            0 -> "Low"
+            1 -> "Medium"
+            else -> "High"
+        }}"
         distance.text = "Distance : ${result.distance}km"
         layout.setBackgroundResource(when(result.crowdLevel){
-            "Low" -> R.drawable.row_low_crowd
-            "Medium" -> R.drawable.row_medium_crowd
+            0 -> R.drawable.row_low_crowd
+            1 -> R.drawable.row_medium_crowd
             else -> R.drawable.row_high_crowd
 
         })
